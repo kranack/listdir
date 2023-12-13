@@ -12,13 +12,15 @@
   <body class="has-background-white-bis" style="height: 100vh">
     <section class="section">
       <div class="container has-background-warning-light" style="border-radius: 5px; padding: 10px">
-        @if ($has_previous)
-          <a href="{{ dirname($root) }}">
-            <span class="icon">
-              <i class="fas fa-arrow-left"></i>
-            </span>
-          </a>
-        @endif
+        <div class="" style="border-bottom: 1px dashed; margin-bottom: 5px; padding-bottom: 1px">
+          @if ($has_previous)
+            <a href="{{ dirname($root) }}">
+              <span class="icon">
+                <i class="fas fa-arrow-left"></i>
+              </span>
+            </a>
+          @endif
+        </div>
         @foreach ($files as $file)
           <div>
             <a href="{{ $root }}{{ $file->name }}">
