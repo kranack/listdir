@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Testing\MimeType;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -23,7 +24,7 @@ class ListController extends Controller
     if ($type === 'dir') {
       return view('list.index', [
         'root'          => rtrim(str_replace($root, '', $folder), '/') . '/',
-        'files'         => array_map(fn($file) => (object) [ 'path' => $file, 'type' => filetype($file), 'name' => basename($file) ], glob(sprintf('%s/*', $folder))),
+        'files'         => array_map(fn($file) => (object) [ 'path' => $file, 'type' => filetype($file), 'name' => basename($file), 'mime' => MimeType::from($file) ], glob(sprintf('%s/*', $folder))),
         'has_previous'  => !!$path
       ]);
     } else {

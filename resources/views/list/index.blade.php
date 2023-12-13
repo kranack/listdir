@@ -26,7 +26,7 @@
             <a href="{{ $root }}{{ $file->name }}">
               <span class="icon-text">
                 <span class="icon">
-                  <i class="fas fa-{{ $file->type === 'dir' ? 'folder' : 'file' }}"></i>
+                  <i class="fas fa-{{ $file->type === 'dir' ? 'folder' : ( strpos($file->mime, 'video/') === 0 ? 'film' : 'file') }}"></i>
                 </span>
                 {{ $file->name }}
               </span>
