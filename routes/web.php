@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/zip/{path?}', [ListController::class, 'zip'])->where('path', '(.*)');
 Route::get('/{path?}', [ListController::class, 'show'])->where('path', '(.*)');

@@ -32,9 +32,17 @@
       }
 
       .viewer-controls {
+        display: flex;
+        justify-content: space-between;
+
         border-bottom: 1px dashed;
         margin-bottom: 5px;
         padding-bottom: 1px;
+      }
+
+      .viewer-item {
+        display: flex;
+        justify-content: space-between;
       }
 
     </style>
@@ -56,16 +64,26 @@
                 <i class="fas fa-arrow-left"></i>
               </span>
             </a>
+            <a href="/">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+            </a>
           @endif
         </div>
         @foreach ($files as $file)
-          <div>
-            <a href="{{ $root }}{{ $file->name }}">
+          <div class="viewer-item">
+            <a href="{{ $root . $file->name }}">
               <span class="icon-text">
                 <span class="icon">
                   <i class="fas fa-{{ $file->type === 'dir' ? 'folder' : ( strpos($file->mime, 'video/') === 0 ? 'film' : 'file') }}"></i>
                 </span>
                 {{ $file->name }}
+              </span>
+            </a>
+            <a href="/zip{{ $root . $file->name }}">
+              <span class="icon">
+                <i class="fas fa-file-zipper"></i>
               </span>
             </a>
           </div>

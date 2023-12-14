@@ -7,8 +7,11 @@ use Illuminate\Http\Testing\MimeType;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
+use Zip;
+
 class ListController extends Controller
 {
+
   public function show(string $path = null) : View|BinaryFileResponse
   {
     $folder = $root = env('DIRECTORY_FOLDER');
@@ -31,6 +34,20 @@ class ListController extends Controller
         // Download
         return response()->download($folder);
     }
-
   }
+
+  public function zip(string $path = null) : View|\STS\ZipStream\ZipStream
+  {
+    $folder = $root = env('DIRECTORY_FOLDER');
+
+    if ($path) {
+      $folder = sprintf('%s/%s', $folder, $path);
+    }
+
+    if (!$folder || !file_exists($folder)) return redirect($path);
+
+    // ZIP
+    return Zip::create(basename($folder) . '.zip', [ $folder ]);
+  }
+
 }
