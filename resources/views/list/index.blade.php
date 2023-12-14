@@ -13,14 +13,14 @@
   <body style="height: 100vh">
     <section class="section">
       <div class="columns is-centered">
-        <div class="column is-half" style="display: flex; justify-content: center">
+        <div class="column is-narrrow" style="display: flex; justify-content: center; content-visibility: auto">
           <figure class="image" style="height: 250px; width: 250px">
-            <img src="{{ asset('/logos/damien_vod.png') }}">
+            <img src="{{ asset('/logos/damien_vod.png') }}" loading="async">
           </figure>
         </div>
       </div>
       <div class="container" style="border-radius: 5px; padding: 10px">
-        <div class="" style="border-bottom: 1px dashed; margin-bottom: 5px; padding-bottom: 1px">
+        <div style="border-bottom: 1px dashed; margin-bottom: 5px; padding-bottom: 1px">
           @if ($has_previous)
             <a href="{{ dirname($root) }}">
               <span class="icon">
