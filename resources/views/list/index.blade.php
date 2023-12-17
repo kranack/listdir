@@ -11,8 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
 
     <style type="text/css">
+      html {
+        overflow: hidden;
+      }
+
       body {
         height: 100vh;
+      }
+
+      section.section {
+        height: calc(100% - 9rem);
+        overflow-y: auto;
       }
 
       .logo {
@@ -111,5 +120,19 @@
         @endforeach
       </div>
     </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <a href="https://github.com/kranack/listdir">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Github</span>
+            </span>
+          </a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
