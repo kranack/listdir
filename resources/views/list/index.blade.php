@@ -44,8 +44,22 @@
         display: flex;
         justify-content: space-between;
       }
-
     </style>
+    <script type="text/javascript" async>
+      addEventListener("DOMContentLoaded", () => {
+        const copyToClipboardEls = document.querySelectorAll('a#copyToClipboard')
+
+        if (!copyToClipboardEls.length) return;
+
+        copyToClipboardEls.forEach(copyToClipboardEl => {
+          copyToClipboardEl.addEventListener('click', (e) => {
+            e.preventDefault()
+            const url = e.currentTarget.parentElement.parentElement.firstElementChild.href || ''
+            navigator.clipboard.writeText(url)
+          })
+        })
+      });
+    </script>
   </head>
   <body>
     <section class="section">
@@ -81,11 +95,18 @@
                 {{ $file->name }}
               </span>
             </a>
-            <a href="/zip{{ $root . $file->name }}">
-              <span class="icon">
-                <i class="fas fa-file-zipper"></i>
-              </span>
-            </a>
+            <div>
+              <a id="copyToClipboard">
+                <span class="icon" aria-label="copy">
+                  <i class="fas fa-clipboard"></i>
+                </span>
+              </a>
+              <a href="/zip{{ $root . $file->name }}">
+                <span class="icon">
+                  <i class="fas fa-file-zipper"></i>
+                </span>
+              </a>
+            </div>
           </div>
         @endforeach
       </div>
