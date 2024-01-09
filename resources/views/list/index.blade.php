@@ -105,16 +105,19 @@
               </span>
             </a>
             <div>
-              <a id="copyToClipboard">
-                <span class="icon" aria-label="copy">
-                  <i class="fas fa-clipboard"></i>
-                </span>
-              </a>
-              <a href="/zip{{ $root . $file->name }}">
-                <span class="icon">
-                  <i class="fas fa-file-zipper"></i>
-                </span>
-              </a>
+              @if ($file->type === 'file')
+                <a id="copyToClipboard">
+                  <span class="icon" aria-label="copy">
+                    <i class="fas fa-clipboard"></i>
+                  </span>
+                </a>
+              @elseif ($file->type === 'dir')
+                <a href="/zip{{ $root . $file->name }}">
+                  <span class="icon">
+                    <i class="fas fa-file-zipper"></i>
+                  </span>
+                </a>
+              @endif
             </div>
           </div>
         @endforeach
