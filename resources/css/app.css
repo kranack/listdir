@@ -1,0 +1,46 @@
+@import "../../node_modules/bulma/css/bulma.css";
+
+@import "../../node_modules/izitoast/dist/css/iziToast.css";
+
+html {
+  overflow: hidden;
+}
+
+body {
+  height: 100vh;
+}
+
+section.section {
+  height: calc(100% - 9rem);
+  overflow-y: auto;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  content-visibility: auto;
+}
+
+.logo > figure {
+  height: 250px;
+  width: 250px;
+}
+
+.viewer {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.viewer-controls {
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px dashed;
+  margin-bottom: 5px;
+  padding-bottom: 1px;
+}
+
+.viewer-item {
+  display: flex;
+  justify-content: space-between;
+}

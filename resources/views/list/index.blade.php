@@ -8,74 +8,19 @@
 
     <link rel="icon" href="/favicon.svg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
 
-    <style type="text/css">
-      html {
-        overflow: hidden;
-      }
+    @viteReactRefresh
+    @vite('resources/css/app.css')
 
-      body {
-        height: 100vh;
-      }
-
-      section.section {
-        height: calc(100% - 9rem);
-        overflow-y: auto;
-      }
-
-      .logo {
-        display: flex;
-        justify-content: center;
-        content-visibility: auto;
-      }
-
-      .logo > figure {
-        height: 250px;
-        width: 250px;
-      }
-
-      .viewer {
-        border-radius: 5px;
-        padding: 10px;
-      }
-
-      .viewer-controls {
-        display: flex;
-        justify-content: space-between;
-
-        border-bottom: 1px dashed;
-        margin-bottom: 5px;
-        padding-bottom: 1px;
-      }
-
-      .viewer-item {
-        display: flex;
-        justify-content: space-between;
-      }
-    </style>
-    <script type="text/javascript" async>
-      addEventListener("DOMContentLoaded", () => {
-        const copyToClipboardEls = document.querySelectorAll('a#copyToClipboard')
-
-        if (!copyToClipboardEls.length) return;
-
-        copyToClipboardEls.forEach(copyToClipboardEl => {
-          copyToClipboardEl.addEventListener('click', (e) => {
-            e.preventDefault()
-            const url = e.currentTarget.parentElement.parentElement.firstElementChild.href || ''
-            navigator.clipboard.writeText(url)
-          })
-        })
-      });
-    </script>
+    @viteReactRefresh
+    @vite('resources/js/app.js')
   </head>
   <body>
     <section class="section">
       <div class="columns is-centered">
         <div class="column is-narrrow logo">
           <figure class="image">
-            <img src="{{ asset('/logos/damien_vod.png') }}" loading="async">
+            <img src="{{ asset('/storage/assets/damien_vod.png') }}" loading="async">
           </figure>
         </div>
       </div>
