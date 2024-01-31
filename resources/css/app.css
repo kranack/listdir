@@ -44,3 +44,6 @@ section.section {
   display: flex;
   justify-content: space-between;
 }
+.viewer-item:hover {
+  border-bottom: 1px dashed;
+}
