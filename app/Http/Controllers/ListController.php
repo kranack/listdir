@@ -22,12 +22,12 @@ class ListController extends Controller
 
     if (!$folder || !file_exists($folder)) return view('404');
 
-    $type = filetype($folder);
+    $type = filetype(realpath($folder));
 
     if ($type === 'dir') {
       return view('list.index', [
         'root'          => rtrim(str_replace($root, '', $folder), '/') . '/',
-        'files'         => array_map(fn($file) => (object) [ 'path' => $file, 'type' => filetype($file), 'name' => basename($file), 'mime' => MimeType::from($file) ], glob(sprintf('%s/*', $folder))),
+        'files'         => array_map(fn($file) => (object) [ 'path' => $file, 'type' => filetype(realpath($file)), 'name' => basename($file), 'mime' => MimeType::from($file) ], glob(sprintf('%s/*', $folder))),
         'has_previous'  => !!$path
       ]);
     } else {
